@@ -34,6 +34,16 @@
     .songplayer {
         width: 98%;
     }
+    .button {
+        background-color: White;
+        color: Black;
+        font-size: 18px;
+        border-color: Black;
+        border-style: ridge;
+        border-width: 2px;
+        padding: 10px 10px 4px 4px;
+        text-decoration: none;
+    }
     @keyframes projecthover {
         0% {box-shadow: 0px 0px 0px #FFFFFF;background-color: #FFFFFF;}
         100% {box-shadow: 3px 3px 5px #808080;background-color: #FFEFEF;}
@@ -50,15 +60,12 @@
         <iframe class="songplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" src="//music.163.com/outchain/player?type=2&id=857896&auto=1&height=66"></iframe>
     </div>
     <div class="projects"><h3>作品集</h3>
-        <button onclick="toggle('addons')">附加包教程</button>
-        <span id="addons" style="display:block;">
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-        </span>
+        <a href="tutorials.html" class="button">教程系列</a><br />
+        <a href="addons.html" class="button">附加包系列</a><br />
+        <a href="resource.html" class="button">资源包系列</a><br />
+        <a href="picture.html" class="button">mc趣图系列</a><br />
+        <a href="article.html" class="button">DeepDives文章系列</a><br />
+        <a href="others.html" class="button">其他</a><br />
     </div>
     <script type="text/javascript">
         function toggle(id) {
