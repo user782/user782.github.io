@@ -1,1 +1,74 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>苦力怕论坛782的个人主页</title>
+</head>
+<style>
+    h2 {
+        text-align: center;
+    }
+    div {
+        border-style: dotted;
+        border-radius: 10px;
+    }
+    div:hover {
+        border-style: solid;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    .song {
+        border-color: DeepSkyBlue;
+    }
+    .song:hover {
+        border-color: SkyBlue;
+        animation-name: songhover;
+    }
+    .projects {
+        border-color: Red;
+    }
+    .projects:hover {
+        border-color: IndianRed;
+        animation-name: projecthover;
+    }
+    .songplayer {
+        width: 98%;
+    }
+    @keyframes projecthover {
+        0% {box-shadow: 0px 0px 0px #FFFFFF;background-color: #FFFFFF;}
+        100% {box-shadow: 3px 3px 5px #808080;background-color: #FFEFEF;}
+    }
+    @keyframes songhover {
+        0% {box-shadow: 0px 0px 0px #FFFFFF;background-color: #FFFFFF;}
+        100% {box-shadow: 3px 3px 5px #808080;background-color: #EFEFFF;}
+    }
+</style>
+<body>
+    <h2>欢迎来到苦力怕论坛782的个人主页！</h2>
+    <div class="song">
+        <h3>欢迎听歌！</h3>
+        <iframe class="songplayer" frameborder="no" border="0" marginwidth="0" marginheight="0" src="//music.163.com/outchain/player?type=2&id=857896&auto=1&height=66"></iframe>
+    </div>
+    <div class="projects"><h3>作品集</h3>
+        <button onclick="toggle('addons')">附加包教程</button>
+        <span id="addons" style="display:block;">
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+        </span>
+    </div>
+    <script type="text/javascript">
+        function toggle(id) {
+            var x = document.getElementById(id);
+            if (x.style.display == "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
