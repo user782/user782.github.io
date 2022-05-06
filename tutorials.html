@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<style>
+    button {
+        border-radius: 0px;
+        background-color: White;
+        color: Black;
+        font-size: 18px;
+        border-color: Black;
+    }
+    span {
+        border-color: Black;
+        border-style: solid;
+        border-width: 1px;
+    }
+    a {
+        background-color: White;
+        color: Blue;
+        font-size: 18px;
+        text-decoration: none;
+    }
+</style>
+<body>
+    <h2>我的教程</h2>
+    <button onclick="toggle('addons')">附加包教程</button><br />
+    <span id="addons" style="display:block;">
+        <a href="https://klpbbs.com/thread-38077-1-1.html">第一期——简介</a><br />
+        <a href="https://klpbbs.com/thread-38106-1-1.html">第二期——manifest清单目录文件</a><br />
+        <a href="https://klpbbs.com/thread-38220-1-1.html">第三期——包的主要结构</a><br />
+        <a href="https://klpbbs.com/thread-38654-1-1.html">第四期——了解JSON</a><br />
+        <a href="https://klpbbs.com/thread-39294-1-1.html">第五期——.lang文件</a><br />
+        <a href="https://klpbbs.com/thread-39306-1-1.html">第六期——.mcfunction文件与命名空间</a><br />
+    </span>
+    <a href="https://user782.github.io">返回首页</a>
+    <script type="text/javascript">
+        function toggle(id) {
+            var x = document.getElementById(id);
+            if (x.style.display == "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
