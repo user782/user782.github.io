@@ -34,8 +34,14 @@
     .songplayer {
         width: 98%;
     }
+    .tools {
+        border-color: Green;
+    }
+    .tools:hover {
+        border-color: YellowGreen;
+        animation-name: toolhover;
+    }
     .button {
-        background-color: White;
         color: Black;
         font-size: 18px;
         outline-color: Black;
@@ -56,6 +62,10 @@
         0% {box-shadow: 0px 0px 0px #FFFFFF;background-color: #FFFFFF;}
         100% {box-shadow: 3px 3px 5px #808080;background-color: #EFEFFF;}
     }
+    @keyframes toolhover {
+        0% {box-shadow: 0px 0px 0px #FFFFFF;background-color: #FFFFFF;}
+        100% {box-shadow: 3px 3px 5px #808080;background-color: #EFFFEF;}
+    }
 </style>
 <body>
     <h2>欢迎来到苦力怕论坛782的个人主页！</h2>
@@ -71,6 +81,12 @@
         <a href="pictures.html" class="button">mc趣图系列</a>
         <a href="articles.html" class="button">DeepDives文章系列</a>
         <a href="others.html" class="button">其他</a>
+    </div>
+    <div class="tools">
+        <h3>实用工具</h3>
+        <a href="vanilla.html" class="button">原版资源包和行为包下载</a>
+        <a href="wiki.html" class="button">Minecraft Wiki搜索</a>
+        <a href="klpbbs.html" class="button">苦力怕论坛搜索</a>
     </div>
     <script type="text/javascript">
         function toggle(id) {
