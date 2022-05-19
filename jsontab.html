@@ -9,7 +9,7 @@
     <button onclick="change()">转换</button>
     <script type="text/javascript">
         function change(){
-            document.getElementById("output").innerHTML = document.getElementById("input").value.replace("	","    ");
+            document.getElementById("output").innerHTML = document.getElementById("input").value.replace("	/g","    ");
         }
     </script>
 </body>
