@@ -5,12 +5,16 @@
     <style>
         textarea {
             width: 40%;
-            height: 60%;
             outline: none;
             border-style: ridge;
+            border-radius: 0px 0px 0px 0px;
         }
         button {
+            border-width: 1px;
             border-radius: 0px 0px 0px 0px;
+            color: Black;
+            background-color: White;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -18,9 +22,14 @@
     <textarea id="input" rows="40"></textarea>
     <textarea id="output" rows="40"></textarea><br />
     <button onclick="change()">转换</button>
+    <button onclick="copy()">复制</button>
     <script type="text/javascript">
         function change(){
-            document.getElementById("output").innerHTML = document.getElementById("input").value.replace(/	/g,"    ");
+            document.getElementById("output").value = document.getElementById("input").value.replace(/    /g,"    ");
+        }
+        function copy(){
+            navigator.clipboard.writeText(document.getElementById("output").value)
+            alert("复制成功")
         }
     </script>
 </body>
