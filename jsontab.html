@@ -2,6 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <style>
+        textarea {
+            width: 40%;
+            height: 60%;
+            outline: none;
+            border-style: ridge;
+        }
+    </style>
 </head>
 <body>
     <textarea id="input"></textarea>
@@ -9,7 +17,7 @@
     <button onclick="change()">转换</button>
     <script type="text/javascript">
         function change(){
-            document.getElementById("output").innerHTML = document.getElementById("input").value.replace("	/g","    ");
+            document.getElementById("output").innerHTML = document.getElementById("input").value.replace(/	/g,"    ");
         }
     </script>
 </body>
