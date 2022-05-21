@@ -24,7 +24,7 @@ div:hover {
     border-color: IndianRed;
     animation-name: projecthover;
 }
-.songplayer {
+#songplayer {
     width: 98%;
 }
 .tools {
