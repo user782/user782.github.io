@@ -1,0 +1,76 @@
+h2 {
+    text-align: center;
+}
+div {
+    border-style: dotted;
+    border-radius: 10px;
+}
+div:hover {
+    border-style: solid;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+.song {
+    border-color: DeepSkyBlue;
+}
+.song:hover {
+    border-color: SkyBlue;
+    animation-name: songhover;
+}
+.projects {
+    border-color: Red;
+}
+.projects:hover {
+    border-color: IndianRed;
+    animation-name: projecthover;
+}
+.songplayer {
+    width: 98%;
+}
+.tools {
+    border-color: Green;
+}
+.tools:hover {
+    border-color: YellowGreen;
+    animation-name: toolhover;
+}
+.button {
+    color: Black;
+    font-size: 18px;
+    outline-color: Black;
+    outline-style: ridge;
+    outline-width: 2px;
+    border-color: White;
+    border-width: 10px;
+    padding: 10px 10px 4px 4px;
+    text-decoration: none;
+    width: 50%;
+    display: block;
+}
+.text {
+    border-radius: 0px 0px 0px 0px;
+    width: 60%;
+    text-align: center;
+}
+.text:focus {
+    animation-name: textfocus;
+    animation-fill-mode: forwards;
+    outline: none;
+    animation-duration: 0.5s;
+}
+@keyframes projecthover {
+    0% {box-shadow: 0px 0px 0px #FFFFFF;background-color: #FFFFFF;}
+    100% {box-shadow: 3px 3px 5px #808080;background-color: #FFEFEF;}
+}
+@keyframes songhover {
+    0% {box-shadow: 0px 0px 0px #FFFFFF;background-color: #FFFFFF;}
+    100% {box-shadow: 3px 3px 5px #808080;background-color: #EFEFFF;}
+}
+@keyframes toolhover {
+    0% {box-shadow: 0px 0px 0px #FFFFFF;background-color: #FFFFFF;}
+    100% {box-shadow: 3px 3px 5px #808080;background-color: #EFFFEF;}
+}
+@keyframes textfocus {
+    0% {border-color: #000000;}
+    100% {border-color: SkyBlue;}
+}
