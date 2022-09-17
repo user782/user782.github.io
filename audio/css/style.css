@@ -1,0 +1,65 @@
+body{
+    background: url(../images/back.png);
+    font-size: 14px;
+    font-family: "微软雅黑";
+    margin: 0;
+}
+.input_box{
+    width: 150px;
+    background: #31c27c;
+    border: 1px solid #31c27c;
+    margin: 20px auto;
+    color: #fff;
+    border-radius: 2px;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+}
+.play_song{
+    width: 152px;
+    line-height: 30px;
+    position: absolute;
+    left: 50%;
+    margin-left: -76px;
+}
+#loadFile{
+    width: 150px;
+    opacity: 0;
+}
+
+#fileList{
+    background: #eee;
+    width: 300px;
+    margin: 0 auto;
+    list-style: none;
+    max-height: 170px;
+    overflow-y: auto;
+    padding: 0;
+}
+#fileList li{
+    line-height: 24px;
+    padding: 5px 0px;
+    overflow: hidden;
+}
+.num{
+    color: #999;
+    float: left;
+    width: 36px;
+    text-align: center;
+}
+.song{
+    color: #000;
+    float: left;
+}
+.selected{
+    color: #31c27c;
+}
+
+.stage .el{
+    width: 10px;
+    height: 3px;
+    background: red;
+    position: absolute;
+    color: #fff;
+    -webkit-transform-origin: 0% 0%;
+}
