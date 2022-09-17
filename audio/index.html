@@ -42,6 +42,7 @@
 
         let liEl = document.createElement('li');
         liEl.addEventListener('click', function () {
+            loadSound(file);
             play(file, liEl);
             selected(liEl);
         })
