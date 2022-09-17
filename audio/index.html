@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="scripts/anime.min.js"></script>
+    <script src="scripts/color.js"></script>
+</head>
+
+<body>
+    <div class="input_box">
+        <span class="play_song">选择歌曲</span>
+        <input type="file" value="加载" id="loadFile" onchange="loadFile(this.files)">
+    </div>
+    <div class="stage"></div>
+    <ul id="fileList">
+        <!-- <li>
+            <span class="num">1</span>
+            <span class="song selected">等你归来</span>
+        </li> -->
+
+    </ul>
+</body>
+<script>
+    //文件加载
+    let fileList = [];
+    let loadFile = function (files) {
+        let file = files[0];
+        for (let i = 0; i < fileList.length; i++) {
+            if (file.name == fileList[i].name) {
+                return
+            }
+        }
+        fileList.push({
+            num: fileList.length + 1,
+            name: file.name
+        })
+
+        let liEl = document.createElement('li');
+        liEl.addEventListener('click', function () {
+            play(file, liEl);
+            selected(liEl);
+        })
+
+        let numSpanEl = document.createElement('span');
+        numSpanEl.classList.add('num');
+        numSpanEl.innerHTML = fileList.length;
+        liEl.append(numSpanEl);
+
+        let nameSpanEl = document.createElement('span');
+        nameSpanEl.classList.add('song');
+        nameSpanEl.innerHTML = file.name;
+        liEl.append(nameSpanEl);
+
+        let fileListEl = document.getElementById('fileList');
+        fileListEl.append(liEl)
+
+        let selected = function (selectedEl) {
+            let liChildren = document.getElementById('fileList').children;
+            for (let i = 0; i < liChildren.length; i++) {
+                liChildren.item(i).lastChild.classList.remove('selected');
+            }
+            selectedEl.lastChild.classList.add('selected');
+        }
+    }
+
+    //音乐播放
+    let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    let audioBufferSourceNode = null;
+    let analyser = audioCtx.createAnalyser();
+    let play = function (file) {
+        let fr = new FileReader();
+        fr.onload = function (e) {
+            audioCtx.decodeAudioData(e.target.result).then(function (buffer) {
+                if (audioBufferSourceNode != null) {
+                    audioBufferSourceNode.stop();
+                }
+                audioBufferSourceNode = null;
+                audioBufferSourceNode = audioCtx.createBufferSource();
+                audioBufferSourceNode.buffer = buffer;
+                audioBufferSourceNode.connect(audioCtx.destination);
+                audioBufferSourceNode.connect(analyser);
+                audioBufferSourceNode.loop = true;
+                audioBufferSourceNode.start(0);
+            })
+            getMusicData();
+        }
+        fr.readAsArrayBuffer(file);
+    }
+
+    //加载音乐波形分析器
+    let getMusicData = function () {
+        webkitRequestAnimationFrame(getMusicData);
+        const audioInfoArray = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(audioInfoArray);
+        console.log(audioInfoArray);
+        animeDiv(audioInfoArray);
+    }
+
+    //初始化div
+    let initDiv = function (num,r) {
+        const winWidth = document.documentElement.clientWidth;
+        const winHeight = document.documentElement.clientHeight;
+        const avd = 360 / num;
+        const ahd = avd * Math.PI / 180;
+        let stageDivEl = document.querySelector('.stage');
+        for (let i = 0; i < num; i++) {
+            let divEl = document.createElement('div');
+            const color = gradientColor('#16a5a3','#da2864',i,num);
+            divEl.setAttribute('style','background-color:' + color + ';box-shadow:0px 0px 10px' + color);
+            divEl.classList.add('el');
+            stageDivEl.append(divEl);
+            anime({
+                targets:divEl,
+                translateX:[winWidth / 2,winWidth /2 + Math.sin(ahd * i) * r],
+                translateY:[winHeight / 2,winHeight / 2 + Math.cos(ahd * i) * r],
+                rotate:[-(avd * i)],
+                loop:false,
+                duration:1
+            })
+        }
+    }
+    initDiv(60,100);
+
+    //形成动画
+    let animeDiv = function(audioInfoArray){
+        let stageDivEl = document.querySelector('.stage');
+        for(let i = 0;i < stageDivEl.children.length;i++){
+            if(audioInfoArray[i]==0){
+                audioInfoArray[i] = 4;
+            }
+            anime({
+                targets:stageDivEl.children[i],
+                height:[audioInfoArray[i] / 2],
+                duration:1
+            })
+        }
+    }
+</script>
+
+</html>
